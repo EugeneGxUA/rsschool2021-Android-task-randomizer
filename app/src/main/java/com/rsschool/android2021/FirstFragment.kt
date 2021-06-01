@@ -45,8 +45,8 @@ class FirstFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            val min = minEt.text.toString().toInt()
-            val max = maxEt.text.toString().toInt()
+            val min = minEt.text.toString().toIntOrNull() ?: -1
+            val max = maxEt.text.toString().toIntOrNull() ?: -1
 
             if (min < 0 || max < min || max < 0 || min > Int.MAX_VALUE || max > Int.MAX_VALUE || min == max) {
                 Toast.makeText(requireContext(), "You fill invalid data, check it", Toast.LENGTH_SHORT).show()
